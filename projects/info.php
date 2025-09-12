@@ -1,8 +1,8 @@
 <?php // Etiquetas comienzo y final
     echo "<h1>Hola Mundo</h1>";
 
-    for ($i=0; $i < 10; $i++) { 
-        //echo "${i}";
+    for ($i=1; $i <= 10; $i++) { 
+        echo "${i}"."<br>";
     }
 
     $dataString = "uno";
@@ -14,7 +14,23 @@
         echo "${dato}"."<br>";
     }
 
-    define("CONST", "const");
+    define("CONSTANTE", "const");  
+    echo CONSTANTE;
 
-    // echo "El valor 1 es ". $dataString // Se puede concatenar con el punto .
+    define("CONSTANTE2", array("Hugo", 2, true));
+    echo CONSTANTE2[0];
+
+    class MarcaCoche {
+        public $name = "Alpine";
+        public $weight = 1013;
+        
+        public function getBrandName(){
+            return $this -> name;
+        }
+    }
+
+    $alpine = new MarcaCoche();
+    $alpine -> getBrandName();
+
+    // echo MarcaCoche::getBrandName();
 ?>
