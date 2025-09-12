@@ -3,4 +3,7 @@
     for ($i=0; $i < 10; $i++) { 
         echo "${i}";
     }
+    $dataString = "";
+    $dataSetLogin = [1, "Hugo", "h@gmail.com", true];
+    $dataSets = array(1, "Hugo", "h@gmail.com", true);
 ?>
