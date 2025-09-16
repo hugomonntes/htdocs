@@ -33,4 +33,16 @@
     $alpine -> getBrandName();
 
     // echo MarcaCoche::getBrandName();
+    $array2 = array("nombre"=>"Hugo","edad"=>19);
+    foreach ($array2 as $clave => $valor) {
+        echo $clave.":".$valor;
+        echo "<br>";
+    }
+
+    $array3=[
+        "usuario1" => ["nombre" => "Italiani", "edad" => 37],
+        "usuario2" => ["nombre" => "Hugo", "edad" => 22],
+        "usuario3" => ["nombre" => "Diego", "edad" => 25]
+    ]
+
 ?>
