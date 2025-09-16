@@ -43,6 +43,22 @@
         "usuario1" => ["nombre" => "Italiani", "edad" => 37],
         "usuario2" => ["nombre" => "Hugo", "edad" => 22],
         "usuario3" => ["nombre" => "Diego", "edad" => 25]
-    ]
+    ];
 
+    foreach ($array3 as $elemento => $datos) {
+        foreach ($datos as $key => $value) {
+            echo "{$elemento}:{$key}:{$value} <br>";
+        }
+    }
+
+    $libros = [
+        ["titulo" => "Cien años de soledad", "autor" => "Garcia Marquez", "categoria" => 0],
+        ["titulo" => "Sapiens", "autor" => "Yuhal", "categoria" => 1],
+        ["titulo" => "CR7", "autor" => "El bicho", "categoria" => 7],
+        ["titulo" => "Nico Maricón", "autor" => "Nico", "categoria" => 19]
+    ];
+
+    function infoLibro($libro){
+        return ["titulo_completo" => strtoupper($libro["titulo"])];
+    }
 ?>
