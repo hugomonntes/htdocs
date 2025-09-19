@@ -1,4 +1,9 @@
-<?php // Etiquetas comienzo y final
+<?php 
+    include 'C:\xampp\htdocs\projects\libreria.php';
+
+    echo sumar(1,2);
+    echo multi(1,2);
+
     echo "<h1>Hola Mundo</h1>";
 
     for ($i=1; $i <= 10; $i++) { 
