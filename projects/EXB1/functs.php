@@ -74,4 +74,16 @@ function precioEntrada($edad){
     }
 }
 
+// 7. En el transporte público de una ciudad se permiten 4 tipos diferentes de mascotas hurones, perros,
+// gatos y loros. Dependiendo del tipo pagan distinto precio, los hurones y gatos pagan 1€, los perros
+// 1,5€ y los loros 2€.
+// Utilizando la sentencia switch-case, crea una función que muestre lo que tiene que pagar la mascota
+// por viajar.
+// Si la mascota no se encuentra entre ninguna de las anteriores se debe mostrar el mensaje mascota
+// no permitida
+
+function calcularPrecio(){
+
+}
+
 ?>
