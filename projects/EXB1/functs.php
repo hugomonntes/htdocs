@@ -4,7 +4,7 @@
 // En la variable $num se almacena un valor entero que el ordenador genera en forma aleatoria entre 1
 // y 100. Hacer un programa que lo muestre por pantalla al valor generado.
 
-// echo rand(1, 100);
+echo rand(1, 100);
 
 // 2. Crear una función suma que devuelva la suma de dos números que se le pasen como parámetro.
 
