@@ -8,19 +8,21 @@
 
 // 2. Crear una función suma que devuelva la suma de dos números que se le pasen como parámetro.
 
-function suma($a, $b) {
+function suma($a, $b)
+{
     return $a + $b;
 }
 
 // 3. Crea una función que dada la variable $radio calcule el área de un círculo. Nota en PHP existe la
 // función pi().
-function areaCirculo($radio) {
-    return pi()*($radio*$radio);
+function areaCirculo($radio)
+{
+    return pi() * ($radio * $radio);
 }
 
 // 4. Generar un valor aleatorio entre 1 y 5. Luego imprimir en castellano el número (Ej. Si se genera el 3
 // mostrar en la página el string “tres”)
-$numeroAleatorio = rand(1,5);
+$numeroAleatorio = rand(1, 5);
 switch ($numeroAleatorio) {
     case 1:
         echo "uno";
@@ -42,7 +44,8 @@ switch ($numeroAleatorio) {
 }
 
 // 5. Crea una función que compruebe si un número es múltiplo de otro o no, y lo indique por pantalla.
-function esMultiplo($num1, $num2){
+function esMultiplo($num1, $num2)
+{
     return ($num1 % $num2 == 0) || ($num2 % $num1 == 0);
 }
 
@@ -55,7 +58,8 @@ function esMultiplo($num1, $num2){
 // - Entre 56 y 65 cuesta 5€
 // - Para mayores de 66 es gratis
 
-function precioEntrada($edad){
+function precioEntrada($edad)
+{
     switch ($edad) {
         case $edad <= 8 || $edad > 65:
             echo "gratis";
@@ -82,8 +86,87 @@ function precioEntrada($edad){
 // Si la mascota no se encuentra entre ninguna de las anteriores se debe mostrar el mensaje mascota
 // no permitida
 
-function calcularPrecio(){
-
+function precioMascota($tipo)
+{
+    switch (strtolower($tipo)) {
+        case "huron":
+        case "gato":
+            echo "La mascota paga 1€";
+            break;
+        case "perro":
+            echo "La mascota paga 1,5€";
+            break;
+        case "loro":
+            echo "La mascota paga 2€";
+            break;
+        default:
+            echo "Mascota no permitida";
+    }
 }
 
+precioMascota("perro");
+
+// 8. En un Bingo para la tercera edad pueden participar ancianos entre 75 y 80 años, en caso de cantar
+// bingo el premio es de 0,05€ multiplicado por su edad. Crea una función que devuelva la cantidad
+// ganada dependiendo de la edad del jugador.
+function premioBingo($edad)
+{
+    if ($edad >= 75 && $edad <= 80) {
+        return 0.05 * $edad;
+    } else {
+        return 0;
+    }
+}
+
+echo "Premio ganado: " . premioBingo(78) . "€";
+
+// 9. Crea una función que dado un número entero determine si el número es par o impar.
+function parOImpar($num)
+{
+    if ($num % 2 == 0) {
+        echo "$num es par";
+    } else {
+        echo "$num es impar";
+    }
+}
+
+parOImpar(11);
+
+// 10. La serie de Fibonacci se forma sumando los dos números anteriores. Ejemplo: 1,2,3,5,8
+// Utilizando un bucle while, haz que se cree una serie de Fibonacci. La condición de parada será que el
+// nuevo elemento calculado sea mayor que una variable $fin=10000.
+$fin = 10000;
+$a = 1;
+$b = 2;
+
+echo "$a, $b";
+
+while (true) {
+    $c = $a + $b;
+    if ($c > $fin)
+        break;
+    echo ", $c";
+    $a = $b;
+    $b = $c;
+}
+
+// 11. Utilizando bucles for crea una tabla de multiplicar con la siguiente apariencia:
+$num = 7;
+echo "Tabla de multiplicar del $num <br>";
+
+for ($i = 1; $i <= 10; $i++) {
+    echo "$num x $i = " . ($num * $i) . "<br>";
+}
+
+// 12. Utilizando la sentencia do..while calcula el factorial de un número
+$num = 5;
+$resultado = 1;
+$i = 1;
+
+do {
+    $resultado *= $i;
+    $i++;
+} while ($i <= $num);
+
+echo "El factorial de $num es: $resultado";
 ?>
