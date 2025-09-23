@@ -10,11 +10,11 @@ echo cambiarPalabra("abordaje", "almiraje")."<br>";
 
 // 2.
 // Almacena en un array los 10 primeros números pares. Imprime cada uno de los valores en una línea.
- $numerosPares=array();
- for ($i=1; $i <= 10; $i++) {
-    if ($i % 2 == 0) {
-        $numerosPares[] = $i;
-    }
+$numerosPares=array();
+for ($i=1; $i <= 10; $i++) {
+if ($i % 2 == 0) {
+    $numerosPares[] = $i;
+}
 }
 foreach ($numerosPares as $numeros) {
     echo $numeros."<br>";
