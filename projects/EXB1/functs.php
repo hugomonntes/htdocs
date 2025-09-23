@@ -17,7 +17,7 @@ function suma($a, $b)
 // función pi().
 function areaCirculo($radio)
 {
-    return pi() * ($radio * $radio);
+    return pi() * pow($radio, 2);
 }
 
 // 4. Generar un valor aleatorio entre 1 y 5. Luego imprimir en castellano el número (Ej. Si se genera el 3

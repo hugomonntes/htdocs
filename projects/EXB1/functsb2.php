@@ -6,7 +6,7 @@ function cambiarPalabra($cadenaACambiar, $cadenaReferencia)
     return str_replace($cadenaACambiar, $cadenaReferencia, "abordaje");
 }
 
-echo cambiarPalabra("abordaje", "almiraje")."<br>";
+echo cambiarPalabra("bord", "lmir")."<br>";
 
 // 2.
 // Almacena en un array los 10 primeros números pares. Imprime cada uno de los valores en una línea.
