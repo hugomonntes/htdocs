@@ -151,12 +151,23 @@ while (true) {
 }
 
 // 11. Utilizando bucles for crea una tabla de multiplicar con la siguiente apariencia:
-$num = 7;
-echo "Tabla de multiplicar del $num <br>";
+echo "<table style='border: 1px solid black;'>";
+echo "<td></td>";
+for ($columna=1; $columna <=10 ; $columna++) { 
 
-for ($i = 1; $i <= 10; $i++) {
-    echo "$num x $i = " . ($num * $i) . "<br>";
+    echo "<td><b>".$columna."</b></td>";
 }
+echo "</tr>";
+
+for ($i = 1; $i <= 10; $i++) { 
+    echo "<tr>";
+    echo "<td><b> $i </b></td>";
+    for ($j = 1; $j <= 10; $j++) { 
+        echo "<td>" . ($i * $j) . "</td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
 
 // 12. Utilizando la sentencia do..while calcula el factorial de un número
 $num = 5;
