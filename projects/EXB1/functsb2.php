@@ -21,7 +21,7 @@ function contar($frase, $letra)
     return $cont;
 }
 
-contar("hugoo", 'u');
+contar("huuuugoo", 'u');
 echo "<br>";
 
 //3
