@@ -1,44 +1,163 @@
 <?php
-// 1. Dada la cadena de caracteres abordaje conviértela en almiraje utilizando la función str_replace.
-
-function cambiarPalabra($cadenaACambiar, $cadenaReferencia)
+//1
+function reemplazar()
 {
-    return str_replace($cadenaACambiar, $cadenaReferencia, "abordaje");
+    $cadena = "abordaje";
+    echo str_replace("bord", "lmir", $cadena);
 }
 
-echo cambiarPalabra("bord", "lmir")."<br>";
+echo "Funcion 1" . "<br>";
+reemplazar();
+echo "<br>";
 
-// 2.
-// Almacena en un array los 10 primeros números pares. Imprime cada uno de los valores en una línea.
-$numerosPares=array();
-for ($i=1; $i <= 10; $i++) {
-if ($i % 2 == 0) {
-    $numerosPares[] = $i;
+//2
+function contar($frase, $letra)
+{
+    $cont = 0;
+    for ($i = 0; $i < strlen($frase); $i++) {
+        if ($frase[$i] == $letra) {
+            $cont++;
+        }
+    }
+    return $cont;
 }
-}
-foreach ($numerosPares as $numeros) {
-    echo $numeros."<br>";
-}
-// 3.
-// Dado el siguiente array $meses=array('enero','febrero','marzo','abril', 'mayo','junio', 'julio','agosto',
-// 'septiembre', 'octubre', 'noviemnbre', 'diciembre');
-// Genera un nuevo array que sólo contenga los nombres de los meses que empiecen por m
 
-// 4.
-// Dado el array:
-// $colores = array('rojo', 'verde', 'amarillo', 'azul','rosa');
-// borra el elemento azul.
-// 5.
-// Escribe la siguiente matriz $zoo en PHP
-// �
-// 𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃 𝐿𝐿𝐿𝐿ó𝑛𝑛 𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶
-// 𝐺𝐺𝐺𝐺𝐺𝐺𝐺𝐺 𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃 𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶á𝑛𝑛 �
-// Haz que se visualize por pantalla el elemento [1][1]
-// 6.
-// Dados los string:
-// $nombres = array("Carlos Álvarez", "Laura López", "Rosa Márquez", "Jorge Tiras");
-// $materias = array("Lengua", "Historia", "Inglés", "Matemáticas",);
-// Construye la siguiente tabla HTML donde las notas de las materias están dadas con la función rand
-// Realiza una función que reciba una frase y una letra y cuente el número de veces que aparece esa
-// letra en la frase. No se permite ningún método que incluya la palabra count.
-?>
+echo "Funcion 2" . "<br>";
+contar("holaa", 'a');
+echo "<br>";
+
+//3
+function validarContraseña($contraseña)
+{
+    $longitud = strlen($contraseña);
+
+    if ($longitud < 8 || $longitud > 12) {
+        return "Contraseña no válida: debe tener entre 8 y 12 caracteres.";
+    }
+
+    if (is_numeric($contraseña[0])) {
+        return "Contraseña no válida: no debe empezar por un número.";
+    }
+
+    return "Contraseña válida.";
+}
+
+echo "Funcion 3" . "<br>";
+echo validarContraseña("Holaa");
+echo "<br>";
+
+//4
+function pares()
+{
+    $pares = array();
+
+    for ($i = 1; $i <= 10; $i++) {
+        $pares[] = $i * 2;
+    }
+
+    foreach ($pares as $num) {
+        echo $num . "<br>";
+    }
+}
+
+echo "Funcion 4" . "<br>";
+pares();
+echo "<br>";
+
+//5
+function meses()
+{
+    $meses = array(
+        'enero',
+        'febrero',
+        'marzo',
+        'abril',
+        'mayo',
+        'junio',
+        'julio',
+        'agosto',
+        'septiembre',
+        'octubre',
+        'noviemnbre',
+        'diciembre'
+    );
+
+    $meses_m = array();
+    $i = 0;
+    foreach ($meses as $mes) {
+        if (strtolower($mes[0]) === 'm') {
+            $meses_m[$i] = $mes;
+            $i++;
+        }
+    }
+
+    echo ($meses_m);
+}
+
+echo "Funcion 5" . "<br>";
+meses();
+echo "<br>";
+
+//6
+function quitaAzul()
+{
+    $colores = array('rojo', 'verde', 'amarillo', 'azul', 'rosa');
+
+    for ($i = count($colores) - 1; $i >= 0; $i--) {
+        if ($colores[$i] === 'azul') {
+            unset($colores[$i]);
+        }
+    }
+    echo $colores;
+}
+
+
+echo "Funcion 6" . "<br>";
+quitaAzul();
+echo "<br>";
+
+//7
+function zoo()
+{
+    $zoo = array(
+        array("Perro", "León", "Conejo"),
+        array("Gato", "Pato", "Canguro")
+    );
+    echo "Elemento [1][1]: " . $zoo[1][1];
+}
+
+echo "Funcion 7" . "<br>";
+zoo();
+echo "<br>";
+
+//8
+function tablaAleatorios()
+{
+    $nombres = array("Carlos Álvarez", "Laura López", "Rosa Márquez", "Jorge Tiras");
+    $materias = array("Lengua", "Historia", "Inglés", "Matemáticas");
+
+    echo "<table border='1' cellspacing='0' cellpadding='5' style='border-collapse: collapse; text-align: center;'>";
+
+    echo "<tr>";
+    echo "<th>Nombre</th>";
+    foreach ($materias as $materia) {
+        echo "<th>$materia</th>";
+    }
+    echo "</tr>";
+
+    foreach ($nombres as $nombre) {
+        echo "<tr>";
+        echo "<td><b>$nombre</b></td>";
+        foreach ($materias as $materia) {
+            $nota = rand(0, 10);
+            echo "<td>$nota</td>";
+        }
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+
+echo "Funcion 8" . "<br>";
+tablaAleatorios();
+echo "<br>";
