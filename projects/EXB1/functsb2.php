@@ -6,7 +6,6 @@ function reemplazar()
     echo str_replace("bord", "lmir", $cadena);
 }
 
-echo "Funcion 1" . "<br>";
 reemplazar();
 echo "<br>";
 
@@ -22,8 +21,7 @@ function contar($frase, $letra)
     return $cont;
 }
 
-echo "Funcion 2" . "<br>";
-contar("holaa", 'a');
+contar("hugoo", 'u');
 echo "<br>";
 
 //3
@@ -42,8 +40,7 @@ function validarContraseña($contraseña)
     return "Contraseña válida.";
 }
 
-echo "Funcion 3" . "<br>";
-echo validarContraseña("Holaa");
+echo validarContraseña("HugoMontes");
 echo "<br>";
 
 //4
@@ -60,7 +57,6 @@ function pares()
     }
 }
 
-echo "Funcion 4" . "<br>";
 pares();
 echo "<br>";
 
@@ -68,33 +64,31 @@ echo "<br>";
 function meses()
 {
     $meses = array(
-        'enero',
-        'febrero',
-        'marzo',
-        'abril',
-        'mayo',
-        'junio',
-        'julio',
-        'agosto',
-        'septiembre',
-        'octubre',
-        'noviemnbre',
-        'diciembre'
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviemnbre",
+        "diciembre"
     );
 
     $meses_m = array();
-    $i = 0;
     foreach ($meses as $mes) {
         if (strtolower($mes[0]) === 'm') {
-            $meses_m[$i] = $mes;
-            $i++;
+            $meses_m[] = $mes;
+
         }
     }
 
-    echo ($meses_m);
+    print_r($meses_m);
 }
 
-echo "Funcion 5" . "<br>";
 meses();
 echo "<br>";
 
@@ -113,12 +107,6 @@ function quitarAzul()
 }
 
 
-echo "Funcion 6" . "<br>";
-quitarAzul();
-echo "<br>";
-
-
-echo "Funcion 6" . "<br>";
 quitarAzul();
 echo "<br>";
 
@@ -132,7 +120,6 @@ function zoo()
     echo "Elemento [1][1]: " . $zoo[1][1];
 }
 
-echo "Funcion 7" . "<br>";
 zoo();
 echo "<br>";
 
@@ -164,6 +151,5 @@ function tablaAleatorios()
     echo "</table>";
 }
 
-echo "Funcion 8" . "<br>";
 tablaAleatorios();
 echo "<br>";
