@@ -99,7 +99,7 @@ meses();
 echo "<br>";
 
 //6
-function quitaAzul()
+function quitarAzul()
 {
     $colores = array('rojo', 'verde', 'amarillo', 'azul', 'rosa');
 
@@ -108,12 +108,18 @@ function quitaAzul()
             unset($colores[$i]);
         }
     }
-    echo $colores;
+    $array_nuevo = array_values($colores);
+    print_r($array_nuevo);
 }
 
 
 echo "Funcion 6" . "<br>";
-quitaAzul();
+quitarAzul();
+echo "<br>";
+
+
+echo "Funcion 6" . "<br>";
+quitarAzul();
 echo "<br>";
 
 //7
