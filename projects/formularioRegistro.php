@@ -15,7 +15,8 @@
 </head>
 
 <body>
-    <form class="row g-3" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+    <!-- action="<?php echo $_SERVER['PHP_SELF']?>" -->
+    <form class="row g-3" action="datosFormulario.php" method="post">
         <h1 class="display-1">Formulario Inscripción</h1>
         <div class="col-md-6">
             <label for="inputNombre" class="form-label">Nombre</label>
