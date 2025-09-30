@@ -18,7 +18,7 @@
     }
 
     $error = false;
-    $campos = ["nombre", "apellido", "email", "estudios", "estadoCivil"];
+    $campos = ["nombre", "apellido", "email", "estudios", "estadoCivil", "genero"];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($campos as $campo) {
             if (!isset($_POST[$campo]) || empty($_SERVER[$campo])) {
