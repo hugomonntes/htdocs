@@ -9,17 +9,33 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <?php
-        function formato($dato){
-            $dato = trim($dato);
-            $dato = htmlspecialchars($dato);
-            $dato = stripslashes($dato);
-            return $dato;
-        }
+    function formato($dato)
+    {
+        $dato = trim($dato);
+        $dato = htmlspecialchars($dato);
+        $dato = stripslashes($dato);
+        return $dato;
+    }
 
-        $error = false;
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $error = true;
+    $error = false;
+    $campos = ["nombre", "apellido", "email"];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        foreach ($campos as $campo) {
+            if (!isset($_POST[$campo]) || empty($_SERVER[$campo])) {
+                $error = true;
+                echo "<span style=\"color:red;\">El campo" . $campo . "es obligatorio</span><br>";
+            } else {
+                if ($campo == "email") {
+                    $email = filter_var($_POST[$campo], FILTER_SANITIZE_EMAIL);
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        echo "<span style=\"color:red;\">El campo" . $email . "no es válido</span><br>";
+                    }
+                } else {
+                    $todosCampos = filter_var($_POST[$campo], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                }
+            }
         }
+    }
     ?>
 </head>
 
