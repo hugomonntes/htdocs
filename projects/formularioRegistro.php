@@ -19,23 +19,23 @@
         <h1 class="display-1">Formulario Inscripción</h1>
         <div class="col-md-6">
             <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="nombre" class="form-control" id="inputNombre">
+            <input type="nombre" class="form-control" id="inputNombre" name="nombre">
         </div>
         <div class="col-12">
             <label for="inputApellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="inputApellidos" placeholder="Lugonpa">
+            <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Lugonpa">
         </div>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <input type="email" class="form-control" id="inputEmail4" name="email">
         </div>
         <div class="col-md-6">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="inputCity" name="ciudad">
         </div>
         <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
+            <label for="inputState" class="form-label">Estudios</label>
+            <select id="inputState" class="form-select" name="estudios">
                 <option selected>Choose...</option>
                 <option>...</option>
             </select>
@@ -58,19 +58,19 @@
         </div>
 
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]">
             <label class="form-check-label" for="flexSwitchCheckDefault">Ingles</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked name="idiomas[]>
             <label class="form-check-label" for="flexSwitchCheckChecked">Japones</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled name="idiomas[]>
             <label class="form-check-label" for="flexSwitchCheckDisabled">Gallego</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled name="idiomas[]">
             <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Catalan</label>
         </div>
         <textarea name="info" id="info" placeholder="Incidencias"></textarea>
