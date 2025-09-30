@@ -15,6 +15,11 @@
             $dato = stripslashes($dato);
             return $dato;
         }
+
+        $error = false;
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $error = true;
+        }
     ?>
 </head>
 
