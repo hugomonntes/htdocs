@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <form class="row g-3" action="datosFormulario.php" method="post">
+    <form class="row g-3" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
         <h1 class="display-1">Formulario Inscripción</h1>
         <div class="col-md-6">
             <label for="inputNombre" class="form-label">Nombre</label>
@@ -62,11 +62,11 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">Ingles</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked name="idiomas[]>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked name="idiomas[]">
             <label class="form-check-label" for="flexSwitchCheckChecked">Japones</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled name="idiomas[]>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled name="idiomas[]">
             <label class="form-check-label" for="flexSwitchCheckDisabled">Gallego</label>
         </div>
         <div class="form-check form-switch">
