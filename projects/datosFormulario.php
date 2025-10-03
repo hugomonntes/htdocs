@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión Formulario</title>
+    <title>Gestión del formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <?php
     function formato($dato)
     {
@@ -40,72 +39,71 @@
 </head>
 
 <body>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
     <?php
-    if (!$isChecked) {
-        echo "<h1 class = \"display-5\"> Datos introducidos en la inscripcion</h1>";
+    if (!$error) {
+        echo "<h1 class=\"display-5\">Datos introducidos en la inscripcion</h1>";
         if ($genero == "hombre") {
             ?>
             <ol class="list-group list-group-numbered">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Nombre y Apellidos</div>
-                    </div>
-                </li>
-            </ol>
-            <?php
-            echo "Bienvenido señor $nombre $apellidos";
+
+                        <?php
+                        echo "Bienvenido señor $nombre $apellidos";
         } else if ($genero == "mujer") {
             ?>
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div class="fw-bold">Nombre y Apellidos</div>
-                        </div>
-                    </li>
-                </ol>
-                <?php
-                echo "Bienvenido señora $nombre $apellidos";
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item d-flex justify-content-between align-items-start">
+                                    <div class="ms-2 me-auto">
+                                        <div class="fw-bold">Nombre y Apellidos</div>
+                                        <?php
+                                        echo "Bienvenida señora $nombre $apellidos ";
         }
         ?>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Correo</div>
+                                <?php echo $correo ?>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">estudios</div>
+                                <?php echo $estudios ?>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Estado civil</div>
+                                <?php echo $estado ?>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">idiomas que habla</div>
+                                <?php
+                                for ($i = 0; $i < count($idiomas); $i++) {
+                                    echo $idiomas[$i] . "</br>";
+                                }
 
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Estado</div>
+                                ?>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">Informacion relevante</div>
+                                <?php echo $informacion ?>
+                            </div>
+                        </li>
+                    </ol>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                        crossorigin="anonymous"></script>
 
-            </div>
-
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Estudios</div>
-
-            </div>
-
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Idiomas</div>
-
-            </div>
-
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="fw-bold">Informacion relevante</div>
-
-            </div>
-
-        </li>
-        </ol>
-        <?php
-    }
-    ?>
-</body>
+    </body>
+<?php } ?>
 
 </html>

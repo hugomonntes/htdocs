@@ -4,77 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Registro</title>
+    <title>Formulario de registro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        form {
-            padding: 20px;
+        * {
+
+            padding: 5px;
         }
-    </style>
+
+        form {
+            width: 80%
+        }
+
+        label.form-label {
+            font-weight: bold;
+        }
+    </Style>
 </head>
 
 <body>
-    <!-- action="<?php echo $_SERVER['PHP_SELF']?>" -->
+    <h1 class="display-3">Formulario de inscripción</h1>
+
+    <!--<?php echo $_server['PHP_self'] ?>-->
+
     <form class="row g-3" action="datosFormulario.php" method="post">
-        <h1 class="display-1">Formulario Inscripción</h1>
         <div class="col-md-6">
-            <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="nombre" class="form-control" id="inputNombre" name="nombre">
+            <label for="inputEmail4" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputEmail4" name="nombre">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="inputPassword4" name="apellidos">
         </div>
         <div class="col-12">
-            <label for="inputApellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Lugonpa">
-        </div>
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" name="email">
-        </div>
-        <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity" name="ciudad">
+            <label for="inputAddress" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="inputAddress" placeholder="1234 Main St" name="correo">
         </div>
         <div class="col-md-4">
             <label for="inputState" class="form-label">Estudios</label>
             <select id="inputState" class="form-select" name="estudios">
-                <option selected>Choose...</option>
-                <option>...</option>
+                <option selected value="ESO">ESO</option>
+                <option value="Ciclo Medio FP">Ciclo Medio FP</option>
+                <option selected value="Ciclo Superior FP">Ciclo Superior FP</option>
+                <option value="universidad">universidad</option>
             </select>
         </div>
-        <div class="col-md-2">
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Lugonpa1
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Lugonpa2
-            </label>
-        </div>
 
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Estado civil</label>
+            <select id="inputState" class="form-select" name="estado">
+                <option selected name="soltero/a">Soltero/a</option>
+                <option selected name="casado/a">casado/a</option>
+                <option selected name="divorciado/a">divorciado/a</option>
+                <option selected name="viudo/a">Viudo/a</option>
+            </select>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1" value="hombre">
+                Hombre
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2" value="mujer">
+                mujer
+            </label>
+        </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]" value="Ingles">
             <label class="form-check-label" for="flexSwitchCheckDefault">Ingles</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked name="idiomas[]">
-            <label class="form-check-label" for="flexSwitchCheckChecked">Japones</label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]"
+                value="frances">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Frances</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled name="idiomas[]">
-            <label class="form-check-label" for="flexSwitchCheckDisabled">Gallego</label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]" value="aleman">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Alemán</label>
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled name="idiomas[]">
-            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Catalan</label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="idiomas[]"
+                value="italiano">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Italiano</label>
         </div>
-        <textarea name="info" id="info" placeholder="Incidencias"></textarea>
+        <textarea name="info" id="info" placeholder="Incidencias" style="resize:none" cols="20"></textarea>
+        </div>
+        </div>
+        <div class="col-12">
+
+        </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
