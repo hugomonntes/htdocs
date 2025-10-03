@@ -30,7 +30,7 @@
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         echo "<span style=\"color:red;\">El campo" . $email . "no es válido</span><br>";
                     }
-                } else { 
+                } else {
                     $todosCampos = filter_var($_POST[$campo], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 }
             }
@@ -44,6 +44,68 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <?php
+    if (!$isChecked) {
+        echo "<h1 class = \"display-5\"> Datos introducidos en la inscripcion</h1>";
+        if ($genero == "hombre") {
+            ?>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Nombre y Apellidos</div>
+                    </div>
+                </li>
+            </ol>
+            <?php
+            echo "Bienvenido señor $nombre $apellidos";
+        } else if ($genero == "mujer") {
+            ?>
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Nombre y Apellidos</div>
+                        </div>
+                    </li>
+                </ol>
+                <?php
+                echo "Bienvenido señora $nombre $apellidos";
+        }
+        ?>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Estado</div>
+
+            </div>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Estudios</div>
+
+            </div>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Idiomas</div>
+
+            </div>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Informacion relevante</div>
+
+            </div>
+
+        </li>
+        </ol>
+        <?php
+    }
+    ?>
 </body>
 
 </html>
