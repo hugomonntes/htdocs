@@ -22,12 +22,12 @@
         foreach ($campos as $campo) {
             if (!isset($_POST[$campo]) || empty($_SERVER[$campo])) {
                 $error = true;
-                echo "<span style=\"color:red;\">El campo" . $campo . "es obligatorio</span><br>";
+                echo "<span style=\"color:red;\">El campo " . $campo . " es obligatorio</span><br>";
             } else {
                 if ($campo == "email") {
                     $email = filter_var($_POST[$campo], FILTER_SANITIZE_EMAIL);
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        echo "<span style=\"color:red;\">El campo" . $email . "no es válido</span><br>";
+                        echo "<span style=\"color:red;\">El campo " . $email . " no es válido</span><br>";
                     }
                 } else {
                     $todosCampos = filter_var($_POST[$campo], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
