@@ -30,7 +30,7 @@
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         echo "<span style=\"color:red;\">El campo" . $email . "no es válido</span><br>";
                     }
-                } else {
+                } else { 
                     $todosCampos = filter_var($_POST[$campo], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 }
             }
