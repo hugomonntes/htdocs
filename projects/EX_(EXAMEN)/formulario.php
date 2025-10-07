@@ -9,9 +9,11 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         foreach($campos as $campo){
-            if($campo == ""){
-                
-            }
+            if(isset($_POST[$campo]) || empty(trim($_POST[$campo]))){
+                if ($campo == "correo") {
+                    
+                }                
+            } 
         }
     }
 
@@ -43,6 +45,7 @@
             <option value="mensual">Mensual</option> <!-- 7, 12 -->
             <option value="anual">Anual</option> <!-- 80, 120 -->
         </select>
+        <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
