@@ -6,41 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php
-    $campos = ["nombre", "primerApellido", "segundoApellido", "correo", "info", "National", "Electronic", "Conocer", "Science", "Marca", "Subs"];
+    $campos = ["nombre", "primerApellido", "segundoApellido"];
 
-    function checkNombre($campos)
+    function checkCampo($campos)
     {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            foreach ($campos as $campo) {
-                if ($campo == "nombre") {
-                    if (isset($_POST[$campo]) || empty(trim($_POST[$campo]))) {
-                        echo "<span style=\"color:red;\">Error " . $campo . "</span><br>";
-                    } else {
-                        $texto = filter_var($_POST[$campo], FILTER_SANITIZE_EMAIL);
-                        echo "<span style=\"color:green;\">$texto</span><br>";
-                    }
+        foreach ($campos as $campo) {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (empty(trim($_POST[$campo]))) {
+                    echo "<span style='color:red'>El campo " . $campo . " es obligatorio</span><br>";
                 }
             }
         }
     }
 
-    // if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    //     foreach ($campos as $campo) {
-    //         if (isset($_POST[$campo]) || empty(trim($_POST[$campo]))) {
-    //             if ($campo == "correo") {
-    //                 $email = filter_var($_POST[$campo], FILTER_SANITIZE_EMAIL);
-    //                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //                     echo "<span style=\"color:red;\">El correo " . $email . " no es válido</span><br>";
-    //                 } else {
-    //                     echo "<span style=\"color:green;\">El correo " . $email . " es válido</span><br>";
-    //                 }
-    //             } else {
-    //                 $texto = filter_var($_POST[$campo], FILTER_SANITIZE_EMAIL);
-    //                 echo "<span style=\"color:green;\">$texto</span><br>";
-    //             }
-    //         }
-    //     }
-    // }
+    function checkCorreo($nombre)
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $correo = trim($_POST[$nombre]);
+            if (empty($correo)) {
+                echo "<span style='color:red;'>El correo es obligatorio</span><br>";
+            } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+                echo "<span style='color:red;'>Correo no válido</span>";
+            }
+        }
+    }
 
     ?>
 </head>
@@ -48,31 +37,81 @@
 <body>
     <h1>Formulario de subscripción</h1>
     <form action="" method="post">
-        <label for="">Nombre:</label>
-        <input type="text" name="nombre"> <?php checkNombre($campos) ?> <br><br>
-        <label for="">Primer Apellido</label>
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br><br>
+
+        <label>Primer Apellido:</label>
         <input type="text" name="primerApellido"><br><br>
-        <label for="">Segundo Apellido</label>
+
+        <label>Segundo Apellido:</label>
         <input type="text" name="segundoApellido"><br><br>
-        <label for="">Correo Electrónico</label>
+
+        <label>Correo Electrónico:</label>
         <input type="text" name="correo"><br><br>
-        <label for="">Deseas recibir información?</label><br>
-        <input type="radio" name="info" value="Si"><label>Si, estoy interesado</label><br>
-        <input type="radio" name="info" value="No"><label>No, gracias</label><br><br>
-        <label>Publicaciones disponibles</label><br>
-        <input type="checkbox" name="National"><label>National Geographic</label><br>
-        <input type="checkbox" name="Electronic"><label>Electronic Letters</label><br>
-        <input type="checkbox" name="Conocer"><label>Conocer</label><br>
-        <input type="checkbox" name="Science"><label>Science</label><br>
-        <input type="checkbox" name="Marca"><label>Marca</label><br><br>
-        <label>Formas de subscripción</label>
-        <select name="Subs">
-            <option value="semanal">Semanal</option> <!-- 4, 7 -->
-            <option value="mensual">Mensual</option> <!-- 7, 12 -->
-            <option value="anual">Anual</option> <!-- 80, 120 -->
-        </select>
+
+        <label>¿Deseas recibir información?</label><br>
+        <input type="radio" name="info" value="Si"> Sí, estoy interesado<br>
+        <input type="radio" name="info" value="No"> No, gracias<br><br>
+
+        <label>Publicaciones disponibles:</label><br>
+        <input type="checkbox" name="publicaciones[]" value="National Geographic"> National Geographic<br>
+        <input type="checkbox" name="publicaciones[]" value="Electronic Letters"> Electronic Letters<br>
+        <input type="checkbox" name="publicaciones[]" value="Conocer"> Conocer<br>
+        <input type="checkbox" name="publicaciones[]" value="Science"> Science<br>
+        <input type="checkbox" name="publicaciones[]" value="Marca"> Marca<br><br>
+
+        <label>Formas de subscripción:</label>
+        <select name="subs">
+            <option value="">Selecciona...</option>
+            <option value="semanal">Semanal</option>
+            <option value="mensual">Mensual</option>
+            <option value="anual">Anual</option>
+        </select><br><br>
+
         <button type="submit">Enviar</button>
     </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        checkCampo($campos);
+        checkCorreo("correo");
+    }
+    if (
+        !empty($_POST["nombre"]) &&
+        !empty($_POST["primerApellido"]) &&
+        !empty($_POST["segundoApellido"]) &&
+        !empty($_POST["correo"]) &&
+        filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) &&
+        !empty($_POST["info"]) &&
+        !empty($_POST["publicaciones"]) &&
+        !empty($_POST["subs"])
+    ) {
+        echo "<h2>Datos del subscriptor:</h2>";
+        echo "<p><b>Nombre:</b> ".$_POST['nombre']."</p>";
+        echo "<p><b>Primer Apellido:</b>". $_POST['primerApellido']. "</p>";
+        echo "<p><b>Segundo Apellido:</b>".$_POST['segundoApellido']."</p>";
+
+        if ($_POST['info'] == "Si") {
+            echo "<p>Le enviaremos información al correo <b>".$_POST['correo']."</b></p>";
+        } else {
+            echo "<p>No recibirá información al correo <b>".$_POST['correo']."</b></p>";
+        }
+
+        echo "<h3>Datos de la subscripción:</h3>";
+        echo "<p>Señor/a <b>".$_POST['primerApellido']."</b>. Estas las subscripciones:</p>";
+
+        foreach ($_POST['publicaciones'] as $pub) {
+            echo "<p><b>$pub</b></p>";
+        }
+
+        if ($_POST['subs'] == "semanal") {
+            echo "<p>Su tarifa semanal es de 7 euros</p>";
+        } elseif ($_POST['subs'] == "mensual") {
+            echo "<p>Su tarifa mensual es de 60 euros</p>";
+        } else {
+            echo "<p>Su tarifa anual es de 120 euros</p>";
+        }
+    }
+    ?>
 </body>
 
 </html>
