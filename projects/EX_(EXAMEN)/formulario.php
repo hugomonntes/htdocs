@@ -69,7 +69,7 @@
         </select><br><br>
 
         <button type="submit">Enviar</button>
-    </form>
+    </form> 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         checkCampo($campos);
