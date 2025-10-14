@@ -5,6 +5,13 @@ class Libro
 {
     private $autor;
     private $titulo;
+    private $paginas;
+    private $refLibro;
+
+    public function __construct($refLibro){
+        $this -> refLibro = $refLibro;
+    }
+
     function getAutor()
     {
         return $this->autor;
@@ -14,12 +21,26 @@ class Libro
         return $this->titulo;
     }
 
-    function printAutor(){
-        echo $this -> getAutor() . "";
+    function getPaginas()
+    {
+        return $this->paginas;
     }
 
-    function printTitulo(){
-        echo $this -> getTitulo() . "";
+    function printAutor()
+    {
+        echo $this->getAutor() . "";
     }
+
+    function printTitulo()
+    {
+        echo $this->getTitulo() . "";
+    }
+
+    function printLibro()
+    {
+        echo $this->getAutor().", ".$this->getTitulo().", ".$this->getPaginas();
+    }
+
+
 }
 ?>
