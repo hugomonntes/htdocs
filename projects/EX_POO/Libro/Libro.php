@@ -41,6 +41,6 @@ class Libro
         echo $this->getAutor().", ".$this->getTitulo().", ".$this->getPaginas();
     }
 
-
+    
 }
 ?>
