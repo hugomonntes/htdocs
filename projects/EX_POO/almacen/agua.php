@@ -29,6 +29,6 @@ class Agua extends Bebida
     public function mostrarDatos()
     {
         parent::mostrarDatos();
-        echo "Origen: {$this->origen}";
+        echo "|| Origen: {$this->origen} ";
     }
 }

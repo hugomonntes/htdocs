@@ -53,6 +53,6 @@ abstract class Bebida
 
     public function mostrarDatos()
     {
-        echo "ID: {$this->id},Litros: {$this->cantidadLitros} Precio: {$this->calcularPrecio()} Marca: {$this->marca}";
+        echo "ID: {$this->id} || Litros: {$this->cantidadLitros} || Precio: {$this->calcularPrecio()} || Marca: {$this->marca}";
     }
 }

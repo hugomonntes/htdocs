@@ -5,29 +5,28 @@ require_once "almacen.php";
 
 $almacen = new Almacen(2, 3);
 
-$agua1 = new Agua(1, 1.5, 1.00, "Font Vella", "Manantial del Pirineo");
-$agua2 = new Agua(2, 2.0, 1.50, "Lanjarón", "Sierra Nevada");
+$bezoya = new Agua(1, 1.5, 1.20, "Bezoya ", " Manantial");
+$lanjaron = new Agua(2, 2.0, 1.50, "Lanjarón ", " Sierra Nevada");
 
-$cola = new Refresco(3, 1.5, 2.00, "Coca-Cola", 12, true);
-$fanta = new Refresco(4, 2.0, 2.20, "Fanta", 10, false);
-$colaZero = new Refresco(5, 1.5, 2.00, "Coca-Cola", 0, false);
+$nestea = new Refresco(3, 1.5, 2.00, "Nestea ", 12, true);
+$kas = new Refresco(4, 2.0, 2.20, "Kas ", 10, false);
+$coca = new Refresco(5, 1.5, 2.00, "Coca-Cola ", 0, false);
 
-$almacen->agregarProducto($agua1);
-$almacen->agregarProducto($agua2);
-$almacen->agregarProducto($cola); // metemos bebidas 
-$almacen->agregarProducto($fanta);
-$almacen->agregarProducto($colaZero);
+$almacen->agregarProducto($bezoya);
+$almacen->agregarProducto($lanjaron);
+$almacen->agregarProducto($nestea); 
+$almacen->agregarProducto($kas);
+$almacen->agregarProducto($coca);
 
-$almacen->mostrarInformacion(); //enseñamos todo
+$almacen->mostrarInformacion(); 
 $almacen->mostrarMatriz();
 
-echo "<hr><b>Precio total del almacén:</b> " . $almacen->calcularPrecioTotal() . " €<br>";
-echo "<b>Precio total de Coca-Cola:</b> " . $almacen->calcularPrecioMarca("Coca-Cola") . " €<br>";
-echo "<b>Precio total de estantería 0:</b> " . $almacen->calcularPrecioEstanteria(0) . " €<br>";
+echo "<hr>Precio total del almacén: " . $almacen->calcularPrecioTotal() . " €<br>";
+echo "Precio total de Coca-Cola: " . $almacen->calcularPrecioMarca("Coca-Cola") . " €<br>";
+echo "Precio total de estantería 0: " . $almacen->calcularPrecioEstanteria(0) . " €<br>";
 
-$almacen->eliminarProducto(3); // un cambio
+$almacen->eliminarProducto(3); 
 
-echo "<hr><b>Después de eliminar la Coca-Cola:</b><br>"; //volvemos a enseñar
+echo "<hr><b>Después de eliminar la Coca-Cola:</b><br>";
 $almacen->mostrarInformacion();
-$almacen->mostrarMatriz();
 ?>

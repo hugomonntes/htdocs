@@ -1,6 +1,6 @@
 <?php
 class Almacen {
-    private $estanterias; // matriz de bebidas
+    private $estanterias;
     private $filas;
     private $columnas;
 
@@ -90,35 +90,14 @@ class Almacen {
             foreach ($fila as $bebida) {
                 if ($bebida !== null) {
                     $bebida->mostrarDatos();
+                    echo "<br>";
                 }
             }
         }
     }
 
     public function mostrarMatriz() {
-        echo "<h3> Estado del almacén (matriz)</h3>";
-        echo "<table border='1' cellpadding='6' cellspacing='0' style='border-collapse: collapse; text-align: center;'>";
-        echo "<tr><th>Fila \\ Columna</th>";
-        for ($j = 0; $j < $this->columnas; $j++) {
-            echo "<th>Columna $j</th>";
-        }
-        echo "</tr>";
-    
-        for ($i = 0; $i < $this->filas; $i++) {
-            echo "<tr>";
-            echo "<th>Fila $i</th>";
-            for ($j = 0; $j < $this->columnas; $j++) {
-                $bebida = $this->estanterias[$i][$j];
-                if ($bebida !== null) {
-                    echo "<td>ID: {$bebida->getId()}<br>({$bebida->getMarca()})</td>";
-                } else {
-                    echo "<td style='color: #aaa;'>– vacío –</td>";
-                }
-            }
-            echo "</tr>";
-        }
-    
-        echo "</table><br>";
+        
     }
 }
 ?>

@@ -31,12 +31,12 @@ class Refresco extends Bebida{
 
     public function calcularPrecio()
     {
-        return $this->promocion ? $this->precio * 0.9 : $this->precio; // Si tiene promo ps metemos solo 90% del precio
+        return $this->promocion ? $this->precio * 0.9 : $this->precio;
     }
 
     public function mostrarDatos()
     {
         parent::mostrarDatos();
-        echo  "Porcentaje de Azucar: {$this->azucar}, Promoción del 10%: {$this->promocion}";
+        echo  "|| Porcentaje de Azucar: {$this->azucar} || Promoción del 10%: {$this->promocion}";
     }
 }
