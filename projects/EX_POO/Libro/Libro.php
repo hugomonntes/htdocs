@@ -1,46 +1,96 @@
 <?php
 
-use Vtiful\Kernel\Format;
-class Libro
-{
+class Libro {
+
     private $autor;
     private $titulo;
     private $paginas;
     private $refLibro;
+    private $prestado;
+    private $contieneCD;
+    private static $referencia=1;
+    public static $numLibros=0;
+    
+    const LIBRO=1;
 
-    public function __construct($refLibro){
-        $this -> refLibro = $refLibro;
+    public function __construct($autor, $titulo, $paginas, $refLibro, $prestado) {
+        $this->autor = $autor;
+        $this->titulo = $titulo;
+        $this->paginas = $paginas;
+        $this->refLibro = self::$referencia++;
+        $this->prestado=$prestado;
+        $this->contieneCD=FALSE;
+        self::$numLibros++;
+        
     }
 
-    function getAutor()
-    {
+    public function getAutor() {
         return $this->autor;
     }
-    function getTitulo()
-    {
+
+    public function getTitulo() {
         return $this->titulo;
     }
 
-    function getPaginas()
-    {
+    public function getPaginas() {
         return $this->paginas;
     }
 
-    function printAutor()
-    {
-        echo $this->getAutor() . "";
+    function setRefLibro($refLibro) {
+        if (strlen($refLibro) > 3) {
+            $this->refLibro = $refLibro;
+        } else {
+            echo "<p>Longitud no válida<p>";
+        }
     }
-
-    function printTitulo()
-    {
-        echo $this->getTitulo() . "";
-    }
-
-    function printLibro()
-    {
-        echo $this->getAutor().", ".$this->getTitulo().", ".$this->getPaginas();
-    }
-
     
+    public function setPrestado(){
+        $this->prestado++;
+    }
+    
+    public function setContieneCD(){
+        $this->contieneCD=TRUE;
+    }
+
+    public function printTitulo() {
+        echo "El título del libro", $this->titulo, "<br>";
+    }
+
+    public function printAutor() {
+        echo "El autor del libro: ", $this->autor, "<br>";
+    }
+
+    public function printLibro() {
+        echo "El autor del libro: ", $this->autor, "<br>";
+        echo "El título del libro ", $this->titulo, "<br>";
+        echo "El número de páginas es ", $this->paginas, "<br>";
+        if (strlen($this->refLibro) > 0) {
+            echo "La referencia del libro es ", $this->refLibro , "<br>";
+        }
+        echo "El libro fue prestado ", $this->prestado ," veces <br>";
+        
+        if ($this->contieneCD){
+            echo "El libro contiene CD";
+        }
+    }
+
 }
-?>
+
+
+
+$libro1 = new Libro("Pablo", "Programando php", 30, "", 0, false);
+
+print $libro1->getAutor();
+print $libro1->getTitulo();
+print $libro1->getPaginas();
+echo "<br>";
+
+$libro1->printLibro();
+$libro1->setPrestado();
+$libro1->printLibro();
+
+
+$libro2 = new Libro("Hugo", "Aprendiendo github", 50, "", 0, false);
+$libro2->printLibro();
+
+print "El número de libros que hay es ". Libro::$numLibros;

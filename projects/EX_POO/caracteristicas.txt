@@ -1,0 +1,7 @@
+PHP POO
+ - Herencia simple
+ - Polimorfismo
+ - Encapsulamiento
+ - abstracción
+
+ https://prod.liveshare.vsengsaas.visualstudio.com/join?1384606830C267F5F89CB81875EA6EFF11C3
