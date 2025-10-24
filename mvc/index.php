@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Inscripción Empleado</title>
+    <?php
+        $campos = ["nombre", "apellidos", "telefono","departamento"];
+        foreach ($campos as $campo => $value) {
+            if (isset($_POST[$value]) && !empty($_POST[$value])) {
+                
+            }
+        }
+    ?>
 </head>
 
 <body>
