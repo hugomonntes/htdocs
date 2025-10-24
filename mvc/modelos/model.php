@@ -12,6 +12,8 @@ class Empleado
     {
         $query = "INSERT INTO empleados(nombre,apellidos,telefono,departamento) VALUES '$nombre', '$apellido', '$telefono', '$departamento'";
         $queryResult = $this->db->query($query);
+        $this->db = null;
+        return $queryResult;
     }
 }
 ?>
