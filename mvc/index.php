@@ -13,7 +13,7 @@
         <table>
             <tr>
                 <td>Nombre: </td>
-                <input type="text" name="nombre" id="nombre">
+                <td><input type="text" name="nombre" id="nombre"></td>
             </tr>
             <tr>
                 <td>Apellidos:</td>
@@ -32,6 +32,7 @@
             </tr>
         </table>
     </form>
+    <a href="/controladores/controlador.php">Lista Empleados</a>
 </body>
 
 </html>
