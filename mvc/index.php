@@ -9,7 +9,15 @@
         $campos = ["nombre", "apellidos", "telefono","departamento"];
         foreach ($campos as $campo => $value) {
             if (isset($_POST[$value]) && !empty($_POST[$value])) {
-                
+                // Llamada al modelo lógico
+                require_once 'modelos/model.php';
+                $empleado = new Empleado();
+                $result = $empleado->setEmpleado($_POST['nombre'],$_POST['apellidos'],$_POST['telefono'],$_POST['departamento']);
+                if ($result) {
+                    echo "<p style='color:green;'>Usuario introducido correctamente<\p>";
+                } else {
+                    echo "<p style='color:red;'>Error al introducir los datos en la base de datos<\p>";
+                }
             }
         }
     ?>
