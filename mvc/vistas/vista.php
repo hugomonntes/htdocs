@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Listado</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Telefono</th>
+            <th>Departamento</th>
+        </tr>
+        <?php
+        for ($i = 0; $i < count($result); $i++) {
+            ?>
+            <tr>
+                <td><?php echo $result[$i]['nombre'] ?></td>
+                <td><?php echo $result[$i]['apellidos'] ?></td>
+                <td><?php echo $result[$i]['telefono'] ?></td>
+                <td><?php echo $result[$i]['departamento'] ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+    </table>
+</body>
+
+</html>
