@@ -24,6 +24,7 @@
                 <td><?php echo $result[$i]['apellidos'] ?></td>
                 <td><?php echo $result[$i]['telefono'] ?></td>
                 <td><?php echo $result[$i]['departamento'] ?></td>
+                <td><?php echo "<a href=\"../controladores/controladorActualizar.php?id={$result[$i]['id']}\">Actualizar</a>"?></td>
             </tr>
             <?php
         }
