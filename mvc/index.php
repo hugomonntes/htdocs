@@ -6,20 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Inscripción Empleado</title>
     <?php
-        $campos = ["nombre", "apellidos", "telefono","departamento"];
-        foreach ($campos as $campo => $value) {
-            if (isset($_POST[$value]) && !empty($_POST[$value])) {
-                // Llamada al modelo lógico
-                require_once 'modelos/model.php';
-                $empleado = new Empleado();
-                $result = $empleado->setEmpleado($_POST['nombre'],$_POST['apellidos'],$_POST['telefono'],$_POST['departamento']);
-                if ($result) {
-                    echo "<p style='color:green;'>Usuario introducido correctamente<\p>";
-                } else {
-                    echo "<p style='color:red;'>Error al introducir los datos en la base de datos<\p>";
-                }
-            }
-        }
+    if ((isset($_POST["nombre"])) && ($_POST["nombre"] != "") && (isset($_POST["apellidos"])) && ($_POST["apellidos"] != "") && (isset($_POST["telefono"]) && ($_POST["telefono"] != "") && (isset($_POST["departamento"])) && ($_POST["departamento"] != "")));
+    //llamada al modelo logico
+    require_once "modelos/model.php";
+    $empleado = new Empleado();
+    $result = $empleado->setEmpleado($_POST['nombre'], $_POST['apellidos'], $_POST['telefono'], $_POST['departamento']);
+    if ($result) {
+        echo "<p style=\"color:green;\">el usuario se ha añadido correctamente</p>";
+    } else {
+        echo "<p style=\"color:red;\">El usuario no se ha añadido</p>";
+    }
     ?>
 </head>
 
