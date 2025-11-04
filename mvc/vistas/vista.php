@@ -25,6 +25,7 @@
                 <td><?php echo $result[$i]['telefono'] ?></td>
                 <td><?php echo $result[$i]['departamento'] ?></td>
                 <td><?php echo "<a href=\"../controladores/controladorActualizar.php?id={$result[$i]['id']}\">Actualizar</a>"?></td>
+                <td><?php echo "<a href=\"../controladores/controladorBorrar.php?id={$result[$i]['id']}\">Borrar</a>"?></td>
             </tr>
             <?php
         }

@@ -8,17 +8,16 @@ class Empleado
         $this->empleado = [];
         $this->db = new PDO("mysql:host=localhost;dbname=ejemplo_mvc;charset=utf8", "root", "");
     }
-    public function setEmpleado($nombre, $apellido, $telefono, $departamento)
-    {
-        $query = "INSERT INTO empleados(nombre,apellidos,telefono,departamento) VALUES '$nombre', '$apellido', '$telefono', '$departamento'";
-        $queryResult = $this->db->query($query);
+    public function setEmpleado($nombre, $apellidos, $telefono, $departamento){
+        $sql = "INSERT INTO empleados(nombre,apellidos,telefono,departamento) VALUES('$nombre','$apellidos','$telefono','$departamento')"; //devuelve true si se ejecuta bien
+        $result = $this->db->query($sql);
         $this->db = null;
-        return $queryResult;
+        return $result;
     }
 
     public function getEmpleado(){
         $sql = "SELECT * FROM empleados";
-        $result=$this->db->query($sql);
+        $result = $this->db->query($sql);
         $this->empleado = $result->fetchAll(PDO::FETCH_ASSOC);
         $this->db = null;
         return $this->empleado;
