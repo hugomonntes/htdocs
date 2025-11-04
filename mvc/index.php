@@ -18,7 +18,6 @@
             echo "<p style=\"color:red;\">El usuario no se ha añadido</p>";
         }
     }
-
     ?>
 </head>
 
