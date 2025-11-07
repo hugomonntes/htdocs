@@ -30,5 +30,13 @@ class Empleado
         $this->db = null;
         return $dato;
     }
+
+    public function borrar($id){
+        $sql = "DELETE id FROM empleados WHERE id = {$id}";
+        $result = $this->db->query($sql);
+        $dato=$result->fetchAll(PDO::FETCH_ASSOC);
+        $this->db = null;
+        return $dato;
+    }
 }
 ?>
