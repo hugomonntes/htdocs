@@ -22,5 +22,13 @@ class Empleado
         $this->db = null;
         return $this->empleado;
     }
+
+    public function editar($id){
+        $sql = "SELECT nombre,apellidos,telefono,departamento FROM empleados WHERE id = {$id}";
+        $result = $this->db->query($sql);
+        $dato=$result->fetchAll(PDO::FETCH_ASSOC);
+        $this->db = null;
+        return $dato;
+    }
 }
 ?>
