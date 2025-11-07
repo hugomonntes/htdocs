@@ -8,6 +8,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     } else {
         echo "Usuario con id {$_GET['id']} no encontrado";
     }
-    require_once '../vistas/vista_editar.php';
+    require_once '../vistas/vista.php';
 }
 ?>
