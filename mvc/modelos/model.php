@@ -32,9 +32,9 @@ class Empleado
     }
 
     public function borrar($id){
-        $sql = "DELETE id FROM empleados WHERE id = {$id}";
+        $sql = "DELETE * FROM empleados WHERE id = {$id} LIMIT 1";
         $result = $this->db->query($sql);
-        $dato=$result->fetchAll(PDO::FETCH_ASSOC);
+        $dato = $result;
         $this->db = null;
         return $dato;
     }
