@@ -32,7 +32,7 @@ class Empleado
     }
 
     public function borrar($id){
-        $sql = "DELETE * FROM empleados WHERE id = {$id} LIMIT 1";
+        $sql = "DELETE FROM empleados WHERE id = {$id} LIMIT 1";
         $result = $this->db->query($sql);
         $dato = $result;
         $this->db = null;
