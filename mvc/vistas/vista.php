@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        th{
+        th {
             width: 150px;
         }
-        tr{
+
+        tr {
             text-align: center;
         }
     </style>
@@ -23,6 +24,7 @@
             <th>Apellidos</th>
             <th>Telefono</th>
             <th>Departamento</th>
+            <th>Foto</th>
         </tr>
         <?php
         for ($i = 0; $i < count($result); $i++) {
@@ -32,8 +34,11 @@
                 <td><?php echo $result[$i]['apellidos'] ?></td>
                 <td><?php echo $result[$i]['telefono'] ?></td>
                 <td><?php echo $result[$i]['departamento'] ?></td>
-                <td><?php echo "<a href=\"../controladores/controladorActualizar.php?id={$result[$i]['id']}\">Actualizar</a>"?></td>
-                <td><?php echo "<a href=\"../controladores/controladorBorrar.php?id={$result[$i]['id']}\">Borrar</a>"?></td>
+                <td><img src="../ <?php echo $result[$i]['imagen'] ?>"> </td>
+                <td><?php echo "<a href=\"../controladores/controladorActualizar.php?id={$result[$i]['id']}\">Actualizar</a>" ?>
+                </td>
+                <td><?php echo "<a href=\"../controladores/controladorBorrar.php?id={$result[$i]['id']}\">Borrar</a>" ?>
+                </td>
             </tr>
             <?php
         }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Editar Datos</h1>
-    <form action="../controladores/controladorActualizar.php" method="post">
+    <form action="../controladores/controladorActualizar.php" method="post" enctype="multipart/form-data">
         <input type="text" name="nombre" id="nombre" value="<?php echo $dato[0]['nombre'] ?>">
         <input type="text" name="apellidos" id="apellidos" value="<?php echo $dato[0]['apellidos'] ?>">
         <input type="tel" name="telefono" id="telefono" value="<?php echo $dato[0]['telefono'] ?>">
