@@ -15,6 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<span style='color:red;'>El FORMATO del email NO es válido</span><br>";
         $flag = false;
     }
+    if (!filter_input($_POST["idiomas"], FILTER_SANITIZE_STRING) && $flag) {
+        echo "<span style='color:red;'>El idioma NO es válido</span><br>";
+        $flag = false;
+    }
     if ($_POST["publi"] != "si" && $flag) {
         echo "<span style='color:red;'>No vas a recibir publi</span><br>";
         $flag = false;
