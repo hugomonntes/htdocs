@@ -13,7 +13,7 @@
         <label for="">Edad: </label><input type="number" name="edad"><br><br>
         <label for="">Hombre</label><input type="radio" name="genero" value="hombre">
         <label for="">Mujer</label><input type="radio" name="genero" value="mujer"><br><br>
-        <select name="idiomas[]">
+        <select name="idiomas">
             <option name="idiomas[]" value="aleman">Aleman</option>
             <option name="idiomas[]" value="español">Español</option>
             <option name="idiomas[]" value="ingles">Ingles</option>
