@@ -1,58 +1,59 @@
 <?php
 
-abstract class Bebida
-{
-    protected $id;
-    protected $cantidadLitros;
-    protected $precio;
-    protected $marca;
+class Bebida {
 
-    public function __construct($id, $cantidadLitros, $precio, $marca)
-    {
-        $this->id = $id;
-        $this->cantidadLitros = $cantidadLitros;
+    //atributos
+    private static $idActual = 0;
+    private $id;
+    private $litros;
+    private $precio;
+    private $marca;
+
+    //constructor
+    public function __construct($litros, $precio, $marca) {
+        $this->litros = $litros;
         $this->precio = $precio;
         $this->marca = $marca;
+        $this->id = self::$idActual + 1;
+        self::$idActual++;
     }
-
-    public function getId()
-    {
+    
+ //metodos
+    public function getId() {
         return $this->id;
     }
-    public function getCantidadLitros()
-    {
-        return $this->cantidadLitros;
+
+    public function setId($id) {
+        $this->id = $id;
     }
-    public function getPrecio()
-    {
+
+    public function getCantidad() {
+        return $this->litros;
+    }
+
+    public function setCantidad($litros) {
+        $this->litros = $litros;
+    }
+
+    public function getPrecio() {
         return $this->precio;
     }
-    public function getMarca()
-    {
+
+    public function setPrecio($precio) {
+        $this->precio = $precio;
+    }
+
+    public function getMarca() {
         return $this->marca;
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-    public function setCantidadLitros($cantidadLitros)
-    {
-        $this->cantidadLitros = $cantidadLitros;
-    }
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-    }
-    public function setMarca($marca)
-    {
+    public function setMarca($marca) {
         $this->marca = $marca;
     }
-
-    abstract public function calcularPrecio();
-
-    public function mostrarDatos()
-    {
-        echo "ID: {$this->id} || Litros: {$this->cantidadLitros} || Precio: {$this->calcularPrecio()} || Marca: {$this->marca}";
+    
+    public function visualizar(){
+        print ('id: '. $this->id . '<br> litros: '. $this->litros.'<br> precio: '. $this->precio.'<br> marca: '. $this->marca .'<br>');
+        
     }
+
 }

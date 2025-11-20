@@ -1,103 +1,113 @@
 <?php
+
+require 'BebidaAzucarada.php';
+require 'AguaMineral.php';
+
 class Almacen {
-    private $estanterias;
-    private $filas;
-    private $columnas;
 
-    public function __construct($filas = 3, $columnas = 3) {
-        $this->filas = $filas;
-        $this->columnas = $columnas;
-        $this->estanterias = array_fill(0, $filas, array_fill(0, $columnas, null));
+    private $estanteria = [];
+
+    public function __construct($filas, $columnas) {
+        for ($i = 0; $i < $filas; $i++) {
+            for ($j = 0; $j < $columnas; $j++) {
+                $this->estanteria[$i][$j] = 0;
+            }
+        }
     }
 
-    public function agregarProducto($bebida) {
+    public function agregarBebida($nuevaBebida) {
+        $i = 0;
+        $j = 0;
+        $encontrado = 0;
+        //count($this->estanteria) devuelve el numero de filas
+        while (($i < count($this->estanteria))and ( $encontrado == 0)) {
+            $j = 0;
+            while (($j < count($this->estanteria[$i]))and ( $encontrado == 0)) {
+                if (!is_object($this->estanteria[$i][$j])) {
+                    print('Hay sitio para la bebida <br>');
 
-        foreach ($this->estanterias as $fila) {
-            foreach ($fila as $item) {
-                if ($item !== null && $item->getId() == $bebida->getId()) {
-                    echo "Ya existe una bebida con ID {$bebida->getId()}<br>";
-                    return;
+                    $this->estanteria[$i][$j] = $nuevaBebida;
+                    $encontrado = 1;
                 }
+                $j++;
             }
+            $i++;
         }
-
-
-        for ($i = 0; $i < $this->filas; $i++) {
-            for ($j = 0; $j < $this->columnas; $j++) {
-                if ($this->estanterias[$i][$j] === null) {
-                    $this->estanterias[$i][$j] = $bebida;
-                    echo "Bebida ID {$bebida->getId()} agregada en posición [$i][$j]<br>";
-                    return;
-                }
-            }
+        if ($encontrado == 0) {
+            print('No hay sitio para la bebida <br>');
         }
-        echo "No hay espacio disponible en el almacén.<br>";
     }
 
-    public function eliminarProducto($id) {
-        for ($i = 0; $i < $this->filas; $i++) {
-            for ($j = 0; $j < $this->columnas; $j++) {
-                if ($this->estanterias[$i][$j] !== null && $this->estanterias[$i][$j]->getId() == $id) {
-                    $this->estanterias[$i][$j] = null;
-                    echo "Producto con ID $id eliminado.<br>";
-                    return;
+    public function calcularPrecioBebidas() {
+        $precioTotal = 0;
+        for ($i = 0; $i < count($this->estanteria); $i++) {
+            for ($j = 0; $j < count($this->estanteria[$i]); $j++) {
+                if (is_object($this->estanteria[$i][$j])) {
+                    if ($this->estanteria[$i][$j]->getPrecio() != 0) {
+                        $precioTotal += $this->estanteria[$i][$j]->getPrecio(); //acumulo el precio
+                    }
                 }
             }
         }
-        echo "No se encontró producto con ID $id.<br>";
-    }
-
-    public function calcularPrecioTotal() {
-        $total = 0;
-        foreach ($this->estanterias as $fila) {
-            foreach ($fila as $bebida) {
-                if ($bebida !== null) {
-                    $total += $bebida->calcularPrecio();
-                }
-            }
-        }
-        return $total;
+        return $precioTotal;
     }
 
     public function calcularPrecioMarca($marca) {
-        $total = 0;
-        foreach ($this->estanterias as $fila) {
-            foreach ($fila as $bebida) {
-                if ($bebida !== null && $bebida->getMarca() == $marca) {
-                    $total += $bebida->calcularPrecio();
+        $precioTotal = 0;
+        for ($i = 0; $i < count($this->estanteria); $i++) {
+            for ($j = 0; $j < count($this->estanteria[$i]); $j++) {
+                if (is_object($this->estanteria[$i][$j])) {
+                    if ($this->estanteria[$i][$j]->getMarca() == $marca) {
+                        $precioTotal += $this->estanteria[$i][$j]->getPrecio(); //acumulo el precio
+                    }
                 }
             }
         }
-        return $total;
+        if ($precioTotal == 0) {
+            print 'No existen productos en el almacen de la marca ' . $marca . '<br>';
+        }
+        return $precioTotal;
     }
 
-    public function calcularPrecioEstanteria($columna) {
-        $total = 0;
-        if ($columna >= 0 && $columna < $this->columnas) {
-            for ($i = 0; $i < $this->filas; $i++) {
-                $bebida = $this->estanterias[$i][$columna];
-                if ($bebida !== null) {
-                    $total += $bebida->calcularPrecio();
+    public function calcularPrecioEstantería($num) {
+        $precioTotal = 0;
+        for ($i = 0; $i < count($this->estanteria); $i++) {
+            if ($num >= count($this->estanteria)) {
+                print ('No existe la estantería indicada <br>');
+            } else {
+                if (is_object($this->estanteria[$i][$num])) {
+                    $precioTotal += $this->estanteria[$i][$num]->getPrecio();
                 }
             }
         }
-        return $total;
+        return $precioTotal;
     }
 
-    public function mostrarInformacion() {
-        echo "<h3>Información del almacén:</h3>";
-        foreach ($this->estanterias as $fila) {
-            foreach ($fila as $bebida) {
-                if ($bebida !== null) {
-                    $bebida->mostrarDatos();
-                    echo "<br>";
+    function eliminarProducto($id) {
+        for ($i = 0; $i < count($this->estanteria); $i++) {
+            for ($j = 0; $j < count($this->estanteria[$i]); $j++) {
+                if (is_object($this->estanteria[$i][$j])) {
+                if ($this->estanteria[$i][$j]->getId() == $id) {
+                    $this->estanteria[$i][$j] = 0;
+                    print 'Producto borrado <br>';
+                }
+                } else {
+                    print 'Producto no encontrado <br> ';
                 }
             }
         }
     }
 
-    public function mostrarMatriz() {
-        
+    function mostrarInformacion() {
+        for ($i = 0; $i < count($this->estanteria); $i++) {
+            for ($j = 0; $j < count($this->estanteria[$i]); $j++) {
+                if (!empty($this->estanteria[$i][$j])) {
+                    $this->estanteria[$i][$j]->visualizar();
+                } else {
+                    print'Falta producto <br>';
+                }
+            }
+        }
     }
+
 }
-?>
