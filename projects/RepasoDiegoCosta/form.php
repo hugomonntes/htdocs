@@ -17,10 +17,10 @@
             <option value="gris">Gris</option>
             <option value="negro">Negro</option>
         </select><br>
-        <label for="">ALEMAN</label><input type="checkbox" name="aleman" id="aleman" checked><br>
-        <label for="">Esapñol</label><input type="checkbox" name="espanol" id="espanol"><br>
-        <label for="">Ingles</label><input type="checkbox" name="ingles" id="ingles"><br>
-        <label for="">Frances</label><input type="checkbox" name="frances" id="frances"><br>
+        <label for="">Aleman</label><input type="checkbox" name="idiomas[]" value="aleman" checked><br>
+        <label for="">Esapñol</label><input type="checkbox" name="idiomas[]" value="espanol"><br>
+        <label for="">Ingles</label><input type="checkbox" name="idiomas[]" value ="ingles"><br>
+        <label for="">Frances</label><input type="checkbox" name="idiomas[]" value="frances"><br>
         <label for="">Email</label><input type="email" name="email" id="email"><br>
         <input type="submit">
     </form>
