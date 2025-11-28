@@ -14,7 +14,7 @@ class Empleado
         $this->db = null;
         return $result;
     }
-
+ 
     public function getEmpleado(){
         $sql = "SELECT * FROM empleados";
         $result = $this->db->query($sql);
