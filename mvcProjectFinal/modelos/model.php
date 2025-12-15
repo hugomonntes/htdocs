@@ -1,42 +1,42 @@
 <?php
-class Empleado
-{
-    private $empleado;
-    private $db;
-    public function __construct()
-    {
-        $this->empleado = [];
-        $this->db = new PDO("mysql:host=localhost;dbname=ejemplo_mvc;charset=utf8", "root", "");
-    }
-    public function setEmpleado($nombre, $apellidos, $telefono, $departamento, $imagen){
-        $sql = "INSERT INTO empleados(nombre,apellidos,telefono,departamento) VALUES('$nombre','$apellidos','$telefono','$departamento','$imagen')"; //devuelve true si se ejecuta bien
-        $result = $this->db->query($sql);
-        $this->db = null;
-        return $result;
-    }
- 
-    public function getEmpleado(){
-        $sql = "SELECT * FROM empleados";
-        $result = $this->db->query($sql);
-        $this->empleado = $result->fetchAll(PDO::FETCH_ASSOC);
-        $this->db = null;
-        return $this->empleado;
+class Equipo {
+    private $conexion;
+
+    public function __construct() {
+        try {
+            $this->conexion = new PDO("mysql:host=localhost;dbname=mvc_equipos", "root", "");
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
+        }
     }
 
-    public function editar($id){
-        $sql = "SELECT nombre,apellidos,telefono,departamento,imagen FROM empleados WHERE id = {$id}";
-        $result = $this->db->query($sql);
-        $dato=$result->fetchAll(PDO::FETCH_ASSOC);
-        $this->db = null;
-        return $dato;
+    public function setEquipo($nombre, $anio, $titulos, $logo) {
+        $sql = "INSERT INTO equipos (nombre, anio_creacion, numero_titulos, logo) VALUES (?, ?, ?, ?)";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$nombre, $anio, $titulos, $logo]);
     }
 
-    public function borrar($id){
-        $sql = "DELETE FROM empleados WHERE id = {$id} LIMIT 1";
-        $result = $this->db->query($sql);
-        $dato = $result;
-        $this->db = null;
-        return $dato;
+    public function getEquipos() {
+        $sql = "SELECT * FROM equipos";
+        return $this->conexion->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getEquipoById($id) {
+        $sql = "SELECT * FROM equipos WHERE id=?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function actualizarEquipo($id, $nombre, $anio, $titulos, $logo) {
+        $sql = "UPDATE equipos SET nombre=?, anio_creacion=?, numero_titulos=?, logo=? WHERE id=?";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$nombre, $anio, $titulos, $logo, $id]);
+    }
+
+    public function borrarEquipo($id) {
+        $sql = "DELETE FROM equipos WHERE id=?";
+        $stmt = $this->conexion->prepare($sql);
+        return $stmt->execute([$id]);
     }
 }
-?>

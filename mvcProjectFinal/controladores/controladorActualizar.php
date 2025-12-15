@@ -1,8 +1,13 @@
 <?php
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    require_once '../modelos/model.php';
-    $empleado = new Empleado();
-    $dato = $empleado->editar($_GET['id']);
-    require_once '../vistas/vista_editar.php';
-}
-?>
+require_once "../modelos/model.php";
+
+$modelo = new Equipo();
+$modelo->actualizarEquipo(
+    $_POST['id'],
+    $_POST['nombre'],
+    $_POST['anio'],
+    $_POST['titulos'],
+    $_POST['logo']
+);
+
+header("Location: controlador.php");
