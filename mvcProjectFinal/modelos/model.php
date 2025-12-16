@@ -11,7 +11,7 @@ class Equipo {
     }
 
     public function setEquipo($nombre, $anio, $titulos, $logo) {
-        $sql = "INSERT INTO equipos (nombre, anio_creacion, numero_titulos, logo) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO equipos (nombre, año_creacion, numero_titulos, logo) VALUES (?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($sql);
         return $stmt->execute([$nombre, $anio, $titulos, $logo]);
     }
@@ -29,7 +29,7 @@ class Equipo {
     }
 
     public function actualizarEquipo($id, $nombre, $anio, $titulos, $logo) {
-        $sql = "UPDATE equipos SET nombre=?, anio_creacion=?, numero_titulos=?, logo=? WHERE id=?";
+        $sql = "UPDATE equipos SET nombre=?, año_creacion=?, numero_titulos=?, logo=? WHERE id=?";
         $stmt = $this->conexion->prepare($sql);
         return $stmt->execute([$nombre, $anio, $titulos, $logo, $id]);
     }

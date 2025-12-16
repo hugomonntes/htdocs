@@ -32,7 +32,7 @@
         }
 
         th {
-            background-color: #4CAF50;
+            background-color: #74c5daff;
             color: white;
         }
 
@@ -49,13 +49,13 @@
             color: #fff;
             padding: 6px 12px;
             border-radius: 5px;
-            background-color: #2196F3;
+            background-color: #0bda15ff;
             margin: 0 5px;
             font-size: 14px;
         }
 
         a:hover {
-            background-color: #0b7dda;
+            background-color: #64c969ff;
         }
 
         .delete {
@@ -95,7 +95,7 @@
             <tr>
                 <td><?= $e['id'] ?></td>
                 <td><?= $e['nombre'] ?></td>
-                <td><?= $e['anio_creacion'] ?></td>
+                <td><?= $e['año_creacion'] ?></td>
                 <td><?= $e['numero_titulos'] ?></td>
                 <td><img src="../img/<?= $e['logo'] ?>" width="50"></td>
                 <td>

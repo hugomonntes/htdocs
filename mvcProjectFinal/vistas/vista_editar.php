@@ -71,9 +71,9 @@
 <form action="../controladores/controladorActualizar.php" method="post">
     <input type="hidden" name="id" value="<?= $equipo['id'] ?>">
     <input type="text" name="nombre" value="<?= $equipo['nombre'] ?>" required>
-    <input type="number" name="anio" value="<?= $equipo['anio_creacion'] ?>" required>
+    <input type="number" name="anio" value="<?= $equipo['año_creacion'] ?>" required>
     <input type="number" name="titulos" value="<?= $equipo['numero_titulos'] ?>" required>
-    <input type="text" name="logo" value="<?= $equipo['logo'] ?>" required>
+    <input type="file" name="logo" value="<?= $equipo['logo'] ?>" required>
     <button type="submit">Actualizar</button>
 </form>
 

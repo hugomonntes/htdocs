@@ -58,7 +58,7 @@ if (
         }
 
         button {
-            background-color: #4CAF50;
+            background-color: #74c5daff;
             color: white;
             padding: 12px 20px;
             border: none;
@@ -69,7 +69,7 @@ if (
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #74c5daff;
         }
 
         .success {
