@@ -20,25 +20,19 @@ class CancionSeeder extends Seeder
                 'titulo' => 'Bohemian Rhapsody',
                 'album' => 'A Night at the Opera',
                 'grupo' => 'Queen',
-                'anio' => 1975,
-                'created_at' => now(),
-                'updated_at' => now()
+                'anio' => '1975',
             ],
             [
                 'titulo' => 'Hotel California',
                 'album' => 'Hotel California',
                 'grupo' => 'Eagles',
-                'anio' => 1976,
-                'created_at' => now(),
-                'updated_at' => now()
+                'anio' => '1976',
             ],
             [
                 'titulo' => "Don't Stop Believin'",
                 'album' => "Journey",
                 'grupo' => "Journey",
-                "anio" => 1978,
-                "created_at" => now(),
-                "updated_at" => now()
+                "anio" => "1978",
             ]
         ]);
     }
