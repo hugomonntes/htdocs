@@ -22,5 +22,7 @@
     <a href="{{ route('inicio') }}">Inicio</a>
     <a href="{{ 'formulario_agregar' }}">Agregar</a>
     @yield('contenido')
+    <hr>
+    <p>CRUD - Creado con Laravel</p>
 </body>
 </html>
