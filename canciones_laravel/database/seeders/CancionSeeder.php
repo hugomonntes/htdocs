@@ -21,18 +21,24 @@ class CancionSeeder extends Seeder
                 'album' => 'A Night at the Opera',
                 'grupo' => 'Queen',
                 'anio' => '1975',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => 'Hotel California',
                 'album' => 'Hotel California',
                 'grupo' => 'Eagles',
                 'anio' => '1976',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'titulo' => "Don't Stop Believin'",
                 'album' => "Journey",
                 'grupo' => "Journey",
                 "anio" => "1978",
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }
