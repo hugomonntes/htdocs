@@ -20,3 +20,5 @@ use App\Http\Controllers\CancionController;
 Route::get('/',[CancionController::class,'index']) -> name('inicio');
 Route::view("/agregar", "nueva_cancion")->name("formAgregar");
 Route::post('/agregar', [CancionController::class, 'agregar_cancion'])->name("agregar_cancion");
+Route::get('/elimnar/{id}', [CancionController::class, 'eliminar_cancion'])->name("eliminar_cancion");
+Route::get("editar/{id}",[CancionController::class, 'editarCancion'])->name("editar_cancion");
