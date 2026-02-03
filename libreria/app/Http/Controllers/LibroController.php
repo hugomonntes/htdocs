@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LibroRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Categoria;
 
 class LibroController extends Controller
 {
@@ -28,8 +29,8 @@ class LibroController extends Controller
     public function create(): View
     {
         $libro = new Libro();
-
-        return view('libro.create', compact('libro'));
+        $categoria = Categoria::pluck('nombre', 'id');
+        return view('libro.create', compact('libro', 'categoria'));
     }
 
     /**

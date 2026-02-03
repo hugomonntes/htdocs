@@ -20,6 +20,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                    
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -29,6 +30,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if(Auth::check())
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Libros') }}</a>
@@ -36,6 +38,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('Categorías') }}</a>
                         </li>
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
