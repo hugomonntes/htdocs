@@ -60,8 +60,8 @@ class LibroController extends Controller
     public function edit($id): View
     {
         $libro = Libro::find($id);
-
-        return view('libro.edit', compact('libro'));
+        $categorias=Categoria::pluck('nombre','id');
+        return view('libro.edit', compact('libro', 'categorias'));
     }
 
     /**

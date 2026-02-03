@@ -49,7 +49,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-										<td >{{ $libro->categoria_id }}</td>
+										<td >{{ $libro->categoria->nombre }}</td>
 										<td >{{ $libro->titulo }}</td>
 										<td >{{ $libro->autor }}</td>
 										<td >{{ $libro->anio_publicacion }}</td>
